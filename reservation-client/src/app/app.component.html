@@ -16,21 +16,13 @@
     <a target="_blank" href="https://www.letsboot.com/">Letsboot.com</a>
   </mat-toolbar-row>
 </mat-toolbar> -->
-
-<div class="container" fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
-  <app-user-information fxFlex="20%"></app-user-information>
-  <app-car-information fxFlex="20%"></app-car-information>
-  <app-schedule fxFlex="20%"></app-schedule>
-  <!-- <div fxFlex="20%">
-    <img mat-card-image class="img" src="https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/8V46UZCS0V.jpg">
+<div fxLayout="column">
+  <div class="container" fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayoutWrap fxLayoutGap="50px" fxLayoutAlign="space-evenly">
+    <app-user-information fxFlex="20%"></app-user-information>
+    <app-car-information fxFlex="20%"></app-car-information>
+    <app-schedule fxFlex="20%"></app-schedule>
   </div>
-  <div fxFlex="20%">
-    <img mat-card-image class="img" src="https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/LTLE4QGRVQ.jpg">
-  </div>
-  <div fxFlex="20%">
-    <img mat-card-image class="img" src="https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/R926LU1YEA.jpg">
-  </div>
-  <div fxFlex="20%">
-    <img mat-card-image class="img" src="https://d2lm6fxwu08ot6.cloudfront.net/img-thumbs/960w/U9PP3KXXY2.jpg">
-  </div> -->
+  <span class="container" fxLayout="row" fxLayoutGap="50px" fxLayoutAlign="center">
+    <button mat-flat-button color="primary" disabled="!reservationValid">Submit</button>
+  </span>
 </div>

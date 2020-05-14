@@ -1,20 +1,25 @@
-<form [formGroup]="vehicleProfile">
-    <div fxFlex fxLayout="column">
-        <label>
-            Year:
-            <input type="number" formControlName="year">
-        </label>
-        <label>
-            Make:
-            <input type="text" formControlName="make">
-        </label>
-        <label>
-            Model:
-            <input type="email" formControlName="model">
-        </label>
-        <label>
-            Color:
-            <input type="text" formControlName="color">
-        </label>
-      </div>
-</form>
+<mat-card fxLayout="column" fxLayoutAlign="space-evenly">
+    <mat-card-title>Vehicle Information</mat-card-title>
+    <mat-card-content>
+        <form [formGroup]="vehicleProfile">
+            <div fxFlex fxLayout="column">
+                <label>
+                    Year:
+                    <input type="number" formControlName="year">
+                </label>
+                <label>
+                    Make:
+                    <input type="text" formControlName="make">
+                </label>
+                <label>
+                    Model:
+                    <input type="email" formControlName="model">
+                </label>
+                <label>
+                    Color:
+                    <input type="text" formControlName="color">
+                </label>
+              </div>
+        </form>
+    </mat-card-content>
+</mat-card>

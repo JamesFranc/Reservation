@@ -9,5 +9,9 @@ import { ScheduleComponent } from './schedule/schedule.component';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'reservation-client';
+  title = 'St. Charles Automotive';
+  userInfo = {};
+  vehicleInfo = {};
+  scheduleInfo = {};
+  reservationValid = false;
 }
