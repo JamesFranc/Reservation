@@ -1,3 +1,4 @@
+@import url(@angular/material/prebuilt-themes/deeppurple-amber.css);
 html,
 body {
   height: 100%;
@@ -5,11 +6,4 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-}
-.ng-valid[required],
-.ng-valid.required {
-  border: 1px solid #42a948;
-}
-.ng-invalid:not(form) {
-  border: 1px solid #a94442;
 }

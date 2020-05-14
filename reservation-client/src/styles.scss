@@ -1,11 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .ng-valid[required], .ng-valid.required  {
-    border: 1px solid #42A948; /* green */
+    // border: 1px solid #42A948; /* green */
   }
   .ng-invalid:not(form)  {
-    border: 1px solid #a94442; /* red */
+    // border: 1px solid #a94442; /* red */
   }

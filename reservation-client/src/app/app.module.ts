@@ -10,11 +10,13 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 import { AppComponent } from './app.component';
 import { UserInformationComponent } from './user-information/user-information.component';
 import { CarInformationComponent } from './car-information/car-information.component';
 import { ScheduleComponent } from './schedule/schedule.component';
+import { MatNativeDateModule } from '@angular/material/core';
 
 
 
@@ -36,7 +38,9 @@ import { ScheduleComponent } from './schedule/schedule.component';
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule 
   ],
   providers: [],
   bootstrap: [AppComponent]
