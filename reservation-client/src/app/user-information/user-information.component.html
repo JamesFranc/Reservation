@@ -1,14 +1,9 @@
 <mat-card>
     <mat-card-title>Customer Information</mat-card-title>
     <mat-card-content>
+        <mat-divider [inset]="true"></mat-divider>
         <form [formGroup]="userProfile">
             <div fxFlex fxLayout="column">
-                <!-- <span *ngFor="let control of userControls">
-                    <label>
-                        {{control}}
-                        <input type="text" formControlName="{{control}}">
-                    </label>
-                </span> -->
                 <label>
                     First Name:
                     <input type="text" formControlName="firstName">

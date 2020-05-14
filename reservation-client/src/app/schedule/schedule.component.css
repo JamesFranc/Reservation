@@ -1,3 +1,6 @@
 mat-card {
   min-width: 230px;
 }
+mat-form-field {
+  margin-top: 10px;
+}
