@@ -9,7 +9,7 @@ import { MatToolbarModule} from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { MatSliderModule } from '@angular/material/slider';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { UserInformationComponent } from './user-information/user-information.component';
@@ -36,7 +36,7 @@ import { ScheduleComponent } from './schedule/schedule.component';
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
-    MatSliderModule
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
