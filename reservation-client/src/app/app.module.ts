@@ -12,12 +12,18 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSliderModule } from '@angular/material/slider';
 
 import { AppComponent } from './app.component';
+import { UserInformationComponent } from './user-information/user-information.component';
+import { CarInformationComponent } from './car-information/car-information.component';
+import { ScheduleComponent } from './schedule/schedule.component';
 
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    UserInformationComponent,
+    CarInformationComponent,
+    ScheduleComponent
   ],
   imports: [
     BrowserModule,
