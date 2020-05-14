@@ -22,3 +22,7 @@ COPY . /app
 
 # start app
 CMD ng serve --host 0.0.0.0
+
+FROM nginx
+COPY docker/nginx/default.conf /etc/nginx/conf.d/default.conf
+COPY --from=compile-image /opt/ng/dist/app-name /usr/share/nginx/html
