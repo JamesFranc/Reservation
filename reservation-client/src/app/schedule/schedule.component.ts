@@ -14,7 +14,7 @@ export class ScheduleComponent implements OnInit {
   
   date: Date;
 
-  myFilter = (d: Date | null): boolean => {
+  dateFilter = (d: Date | null): boolean => {
     const today = new Date();
     const day = d;
     // Prevent Saturday and Sunday from being selected.

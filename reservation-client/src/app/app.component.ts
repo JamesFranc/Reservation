@@ -35,7 +35,8 @@ export class AppComponent {
 
   public canSubmit = false;
   public reservations = new Array<Reservation>();
-  private clearForms: EventEmitter<boolean> = new EventEmitter();
+  public clearForms: EventEmitter<boolean> = new EventEmitter();
+
   
   ngOnInit(): void {
     this.reservationValidSource.next(false);
@@ -85,7 +86,6 @@ export class AppComponent {
       vehicle: this.vehicleInfo,
       date: new Date(this.scheduleInfo.date)
     });
-    this.snackBar
     this.resetForms();
   }
 
