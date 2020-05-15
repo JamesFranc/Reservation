@@ -3,24 +3,66 @@
     <mat-card-content>
         <mat-divider [inset]="true"></mat-divider>
         <form [formGroup]="vehicleProfile">
-            <div fxFlex fxLayout="column">
-                <label>
-                    Year:
-                    <input type="number" formControlName="year">
-                </label>
-                <label>
-                    Make:
-                    <input type="text" formControlName="make">
-                </label>
-                <label>
-                    Model:
-                    <input type="email" formControlName="model">
-                </label>
-                <label>
-                    Color:
-                    <input type="text" formControlName="color">
-                </label>
-              </div>
+            <mat-form-field>
+                <mat-label>Year:</mat-label>
+                <input matInput type="number" formControlName="year">
+                <mat-error *ngIf="vehicleFormControl.year.invalid && (vehicleFormControl.year.dirty || vehicleFormControl.year.touched)" class="alert alert-danger">
+                    <span *ngIf="vehicleFormControl.year.errors.required">
+                        Year is required.
+                    </span>
+                    <span *ngIf="vehicleFormControl.year.errors.minlength">
+                        Year must be at least {{ minYearLength }} characters long.
+                    </span>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Make:</mat-label>
+                <input matInput type="string" formControlName="make">
+                <mat-error *ngIf="vehicleFormControl.make.invalid && (vehicleFormControl.make.dirty || vehicleFormControl.make.touched)" class="alert alert-danger">
+                    <span *ngIf="vehicleFormControl.make.errors.required">
+                        Make is required.
+                    </span>
+                    <span *ngIf="vehicleFormControl.make.errors.minlength">
+                        Make must be at least {{ minLength }} characters long.
+                    </span>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Model:</mat-label>
+                <input matInput type="string" formControlName="model">
+                <mat-error *ngIf="vehicleFormControl.model.invalid && (vehicleFormControl.model.dirty || vehicleFormControl.model.touched)" class="alert alert-danger">
+                    <span *ngIf="vehicleFormControl.model.errors.required">
+                        Model is required.
+                    </span>
+                    <span *ngIf="vehicleFormControl.model.errors.minlength">
+                        Model must be at least {{ minLength }} characters long.
+                    </span>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Color:</mat-label>
+                <input matInput type="string" formControlName="color">
+                <mat-error *ngIf="vehicleFormControl.color.invalid && (vehicleFormControl.color.dirty || vehicleFormControl.color.touched)" class="alert alert-danger">
+                    <span *ngIf="vehicleFormControl.color.errors.required">
+                        Color is required.
+                    </span>
+                    <span *ngIf="vehicleFormControl.color.errors.minlength">
+                        Color must be at least {{ minLength }} characters long.
+                    </span>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>License Plate:</mat-label>
+                <input matInput type="string" formControlName="license">
+                <mat-error *ngIf="vehicleFormControl.license.invalid && (vehicleFormControl.license.dirty || vehicleFormControl.license.touched)" class="alert alert-danger">
+                    <span *ngIf="vehicleFormControl.license.errors.required">
+                        License is required.
+                    </span>
+                    <span *ngIf="vehicleFormControl.license.errors.minlength">
+                        License must be at least {{ minLength }} characters long.
+                    </span>
+                </mat-error>
+            </mat-form-field>
         </form>
     </mat-card-content>
 </mat-card>

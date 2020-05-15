@@ -10,22 +10,28 @@ import { Vehicle } from '../models/vehicle.model';
 export class CarInformationComponent implements OnInit, AfterViewInit {
   @Output() vehicleInfo = new EventEmitter<Vehicle>();
   @Input() private clearForm: EventEmitter<boolean>;
+  public minLength = 3;
+  public minYearLength = 4;
   vehicleProfile = this.fb.group({
     year: new FormControl('', [
       Validators.required,
-      Validators.minLength(4)
+      Validators.minLength(this.minYearLength)
     ]),
     make: new FormControl('', [
       Validators.required,
-      Validators.minLength(3)
+      Validators.minLength(this.minLength)
     ]),
     model: new FormControl('', [
       Validators.required,
-      Validators.minLength(3)
+      Validators.minLength(this.minLength)
     ]),
     color: new FormControl('', [
       Validators.required,
-      Validators.minLength(3)
+      Validators.minLength(this.minLength)
+    ]),
+    license: new FormControl('', [
+      Validators.required,
+      Validators.minLength(this.minLength)
     ]),
   });
   constructor(private fb: FormBuilder) {
@@ -59,6 +65,9 @@ export class CarInformationComponent implements OnInit, AfterViewInit {
   }
   resetVehicleInfo(): void {
     this.vehicleProfile.reset();
+  }
+  get vehicleFormControl() {
+    return this.vehicleProfile.controls;
   }
 
 }

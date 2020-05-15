@@ -3,4 +3,5 @@ export class Vehicle {
  make: string;
  model: string;
  color: string;
+ license: string;
 }

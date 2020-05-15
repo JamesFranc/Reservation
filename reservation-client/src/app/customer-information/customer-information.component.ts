@@ -10,6 +10,8 @@ import { Customer } from '../models/customer.model';
 export class CustomerInformationComponent implements OnInit {
   @Input() private clearForm: EventEmitter<boolean>;
   @Output() customerInfo = new EventEmitter<Customer>();
+  public minEmailLength = 3;
+  public minPhoneLength = 10;
   customerProfile = this.fb.group({
     firstName: new FormControl('', [
       Validators.required,
@@ -37,11 +39,11 @@ export class CustomerInformationComponent implements OnInit {
     // }),
     email: new FormControl('', [
       Validators.required,
-      Validators.minLength(3),
+      Validators.minLength(this.minEmailLength),
     ]),
     phone: new FormControl('', [
       Validators.required,
-      Validators.minLength(10),
+      Validators.minLength(this.minPhoneLength),
     ]),
   });
   customerControlFields = [];
@@ -77,6 +79,9 @@ export class CustomerInformationComponent implements OnInit {
   }
   resetCustomerInfo(): void {
     this.customerProfile.reset();
+  }
+  get custProfileControl() {
+    return this.customerProfile.controls;
   }
 
 }
