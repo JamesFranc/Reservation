@@ -10,7 +10,7 @@ In order to use this application clone this directory and in a terminal window n
 cd Reservation/reservation-client
 ```
 
-To run the application using Docker (preferred) enter the following command: (this assumes you have docker installed on your machine)
+To run the application using Docker enter the following command: (this assumes you have docker installed on your machine)
 ```
 docker-compose build --no-cache && docker-compose up
 ```
