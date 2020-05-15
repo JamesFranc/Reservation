@@ -19,6 +19,8 @@ import { CustomerInformationComponent } from './customer-information/customer-in
 import { CarInformationComponent } from './car-information/car-information.component';
 import { ScheduleComponent } from './schedule/schedule.component';
 import { MatNativeDateModule } from '@angular/material/core';
+import { ReservationComponent } from './reservation/reservation.component';
+import { ReservationsComponent } from './reservations/reservations.component';
 
 
 
@@ -27,7 +29,9 @@ import { MatNativeDateModule } from '@angular/material/core';
     AppComponent,
     CustomerInformationComponent,
     CarInformationComponent,
-    ScheduleComponent
+    ScheduleComponent,
+    ReservationComponent,
+    ReservationsComponent
   ],
   imports: [
     BrowserModule,

@@ -6,7 +6,7 @@ import { Vehicle } from './models/vehicle.model';
 import { Customer } from './models/customer.model';
 import { Subject, combineLatest } from 'rxjs';
 import { filter, tap } from 'rxjs/operators';
-import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatSnackBar } from '@angular/material/snack-bar'
 
 import { Reservation } from './models/reservation.model';
 
@@ -16,6 +16,7 @@ import { Reservation } from './models/reservation.model';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  constructor(public snackBar: MatSnackBar) {}
   title = 'St. Charles Automotive';
   customerInfo:Customer;
   vehicleInfo:Vehicle;
@@ -39,11 +40,7 @@ export class AppComponent {
 
   
   ngOnInit(): void {
-    this.reservationValidSource.next(false);
-    this.customerInformationUpdateSource.next(false);
-    this.vehicleInformationUpdateSource.next(false);
-    this.scheduleInformationUpdateSource.next(false);
-    this.clearForms.emit(false);
+    this.resetForms();
   }
 
   ngAfterViewInit(): void {
@@ -86,11 +83,16 @@ export class AppComponent {
       vehicle: this.vehicleInfo,
       date: new Date(this.scheduleInfo.date)
     });
+    this.snackBar.open('Made a reservation for '+this.customerInfo.firstName+' '+this.customerInfo.lastName+'.', 'x', {duration: 5*1000});
     this.resetForms();
   }
 
   resetForms(): void {
     this.clearForms.emit(true);
+    this.reservationValidSource.next(false);
+    this.customerInformationUpdateSource.next(false);
+    this.vehicleInformationUpdateSource.next(false);
+    this.scheduleInformationUpdateSource.next(false);
   }
 
 }
