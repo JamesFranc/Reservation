@@ -18,9 +18,9 @@
 </mat-toolbar> -->
 <div fxLayout="column">
   <div class="container" fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayoutWrap fxLayoutGap="50px" fxLayoutAlign="space-evenly">
-    <app-user-information fxFlex="20%"></app-user-information>
-    <app-car-information fxFlex="20%"></app-car-information>
-    <app-schedule fxFlex="20%"></app-schedule>
+    <app-customer-information fxFlex="20%" (userInfo)="setVehicle($event)"></app-customer-information>
+    <app-car-information fxFlex="20%" (vehicleInfo)="setVehicle($event)"></app-car-information>
+    <app-schedule fxFlex="20%" (selectedDate)="setDate($event)"></app-schedule>
   </div>
   <span class="container" fxLayout="row" fxLayoutGap="50px" fxLayoutAlign="center">
     <button mat-flat-button color="primary" disabled="!reservationValid">Submit</button>

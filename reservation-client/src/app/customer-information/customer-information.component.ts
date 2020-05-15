@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormBuilder, Validators } from '@angular/forms'
 
 @Component({
-  selector: 'app-user-information',
-  templateUrl: './user-information.component.html',
-  styleUrls: ['./user-information.component.scss']
+  selector: 'app-customer-information',
+  templateUrl: './customer-information.component.html',
+  styleUrls: ['./customer-information.component.scss']
 })
-export class UserInformationComponent implements OnInit {
+export class CustomerInformationComponent implements OnInit {
   userProfile = this.fb.group({
     firstName: new FormControl('', [
       Validators.required,
@@ -46,7 +46,6 @@ export class UserInformationComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    console.log(this.userProfile);
     this.userControls = Array.from(Object.keys(this.userProfile.controls));
   }
 

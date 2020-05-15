@@ -14,7 +14,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatDividerModule } from '@angular/material/divider';
 
 import { AppComponent } from './app.component';
-import { UserInformationComponent } from './user-information/user-information.component';
+import { CustomerInformationComponent } from './customer-information/customer-information.component';
 import { CarInformationComponent } from './car-information/car-information.component';
 import { ScheduleComponent } from './schedule/schedule.component';
 import { MatNativeDateModule } from '@angular/material/core';
@@ -24,7 +24,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 @NgModule({
   declarations: [
     AppComponent,
-    UserInformationComponent,
+    CustomerInformationComponent,
     CarInformationComponent,
     ScheduleComponent
   ],
