@@ -5,24 +5,13 @@
   </h1>
 </div>
 
-<!-- <mat-toolbar>
-  <mat-toolbar-row>
-    <a target="_blank" href="https://material.angular.io/">Angular Material</a>
-  </mat-toolbar-row>
-  <mat-toolbar-row>
-    <a target="_blank" href="https://www.npmjs.com/package/@angular/flex-layout">Flex-Layout</a>
-  </mat-toolbar-row>
-  <mat-toolbar-row>
-    <a target="_blank" href="https://www.letsboot.com/">Letsboot.com</a>
-  </mat-toolbar-row>
-</mat-toolbar> -->
 <div fxLayout="column">
   <div class="container" fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayoutWrap fxLayoutGap="50px" fxLayoutAlign="space-evenly">
-    <app-customer-information fxFlex="20%" (userInfo)="setVehicle($event)"></app-customer-information>
+    <app-customer-information fxFlex="20%" (customerInfo)="setCustomer($event)"></app-customer-information>
     <app-car-information fxFlex="20%" (vehicleInfo)="setVehicle($event)"></app-car-information>
     <app-schedule fxFlex="20%" (selectedDate)="setDate($event)"></app-schedule>
   </div>
   <span class="container" fxLayout="row" fxLayoutGap="50px" fxLayoutAlign="center">
-    <button mat-flat-button color="primary" disabled="!reservationValid">Submit</button>
+    <button mat-flat-button color="primary" disabled="!canSubmit" (click)="submitReservation()">Submit</button>
   </span>
 </div>
