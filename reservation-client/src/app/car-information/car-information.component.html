@@ -5,7 +5,7 @@
         <form [formGroup]="vehicleProfile">
             <mat-form-field>
                 <mat-label>Year:</mat-label>
-                <input matInput type="number" formControlName="year">
+                <input matInput type="number" formControlName="year" maxlength="4">
                 <mat-error *ngIf="vehicleFormControl.year.invalid && (vehicleFormControl.year.dirty || vehicleFormControl.year.touched)" class="alert alert-danger">
                     <span *ngIf="vehicleFormControl.year.errors.required">
                         Year is required.
@@ -17,7 +17,7 @@
             </mat-form-field>
             <mat-form-field>
                 <mat-label>Make:</mat-label>
-                <input matInput type="string" formControlName="make">
+                <input matInput type="string" formControlName="make" maxlength="16">
                 <mat-error *ngIf="vehicleFormControl.make.invalid && (vehicleFormControl.make.dirty || vehicleFormControl.make.touched)" class="alert alert-danger">
                     <span *ngIf="vehicleFormControl.make.errors.required">
                         Make is required.
@@ -29,7 +29,7 @@
             </mat-form-field>
             <mat-form-field>
                 <mat-label>Model:</mat-label>
-                <input matInput type="string" formControlName="model">
+                <input matInput type="string" formControlName="model" maxlength="16">
                 <mat-error *ngIf="vehicleFormControl.model.invalid && (vehicleFormControl.model.dirty || vehicleFormControl.model.touched)" class="alert alert-danger">
                     <span *ngIf="vehicleFormControl.model.errors.required">
                         Model is required.
@@ -41,7 +41,7 @@
             </mat-form-field>
             <mat-form-field>
                 <mat-label>Color:</mat-label>
-                <input matInput type="string" formControlName="color">
+                <input matInput type="string" formControlName="color" maxlength="10">
                 <mat-error *ngIf="vehicleFormControl.color.invalid && (vehicleFormControl.color.dirty || vehicleFormControl.color.touched)" class="alert alert-danger">
                     <span *ngIf="vehicleFormControl.color.errors.required">
                         Color is required.
@@ -53,7 +53,7 @@
             </mat-form-field>
             <mat-form-field>
                 <mat-label>License Plate:</mat-label>
-                <input matInput type="string" formControlName="license">
+                <input matInput type="string" formControlName="license" maxlength="10">
                 <mat-error *ngIf="vehicleFormControl.license.invalid && (vehicleFormControl.license.dirty || vehicleFormControl.license.touched)" class="alert alert-danger">
                     <span *ngIf="vehicleFormControl.license.errors.required">
                         License is required.
@@ -65,7 +65,7 @@
             </mat-form-field>
             <mat-form-field>
                 <mat-label>VIN:</mat-label>
-                <input matInput type="string" formControlName="vin">
+                <input matInput type="string" formControlName="vin" maxlength="17">
                 <mat-error *ngIf="vehicleFormControl.vin.invalid && (vehicleFormControl.vin.dirty || vehicleFormControl.vin.touched)" class="alert alert-danger">
                     <span *ngIf="vehicleFormControl.vin.errors.required">
                         VIN is required.

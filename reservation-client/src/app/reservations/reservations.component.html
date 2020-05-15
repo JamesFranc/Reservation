@@ -16,6 +16,7 @@
                 License Plate
             </div>
         </div>
+        <!-- TODO: each reservation should be its own component -->
         <mat-list-item *ngFor="let reservation of scheduledReservations"  flexLayout="row"> 
             <div fxFlex="25%">
                 {{ reservation.customer.firstName + ' ' + reservation.customer.lastName }} 

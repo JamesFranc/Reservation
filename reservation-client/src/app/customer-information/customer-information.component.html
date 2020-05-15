@@ -6,7 +6,7 @@
             <div fxFlex fxLayout="column">
                 <mat-form-field>
                     <mat-label>First Name:</mat-label>
-                    <input matInput type="text" formControlName="firstName">
+                    <input matInput type="text" formControlName="firstName" maxlength="32">
                     <mat-error *ngIf="custProfileControl.firstName.invalid && (custProfileControl.firstName.dirty || custProfileControl.firstName.touched)" class="alert alert-danger">
                         <span *ngIf="custProfileControl.firstName.errors.required">
                             First name is required.
@@ -15,7 +15,7 @@
                 </mat-form-field>
                 <mat-form-field>
                     <mat-label>Last Name:</mat-label>
-                    <input matInput type="text" formControlName="lastName">
+                    <input matInput type="text" formControlName="lastName" maxlength="32">
                     <mat-error *ngIf="custProfileControl.lastName.invalid && (custProfileControl.lastName.dirty || custProfileControl.lastName.touched)" class="alert alert-danger">
                         <span *ngIf="custProfileControl.lastName.errors.required">
                             Last name is required.
@@ -24,7 +24,7 @@
                 </mat-form-field>
                 <mat-form-field>
                     <mat-label>Email:</mat-label>
-                    <input matInput type="text" formControlName="email">
+                    <input matInput type="text" formControlName="email" maxlength="64">
                     <mat-error *ngIf="custProfileControl.email.invalid && (custProfileControl.email.dirty || custProfileControl.email.touched)" class="alert alert-danger">
                         <span *ngIf="custProfileControl.email.errors.required">
                             Email name is required.
@@ -36,7 +36,7 @@
                 </mat-form-field>
                 <mat-form-field>
                     <mat-label>Phone:</mat-label>
-                    <input matInput type="tel" formControlName="phone">
+                    <input matInput type="tel" formControlName="phone" maxlength="14">
                     <mat-error *ngIf="custProfileControl.phone.invalid && (custProfileControl.phone.dirty || custProfileControl.phone.touched)" class="alert alert-danger">
                         <span *ngIf="custProfileControl.phone.errors.required">
                             Phone number is required.
