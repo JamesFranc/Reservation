@@ -6,6 +6,7 @@ import { Vehicle } from './models/vehicle.model';
 import { Customer } from './models/customer.model';
 import { Subject, combineLatest } from 'rxjs';
 import { filter, tap } from 'rxjs/operators';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { Reservation } from './models/reservation.model';
 
@@ -22,7 +23,7 @@ export class AppComponent {
     date:'',
     time:''
   };
-
+  //implement a snackbar for user feedback on successful submission
   private reservationValidSource = new Subject<boolean>();
   public reservationValid$ = this.reservationValidSource.asObservable();
   private customerInformationUpdateSource = new Subject<boolean>();
@@ -84,6 +85,7 @@ export class AppComponent {
       vehicle: this.vehicleInfo,
       date: new Date(this.scheduleInfo.date)
     });
+    this.snackBar
     this.resetForms();
   }
 
