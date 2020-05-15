@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { CustomerInformationComponent } from './customer-information/customer-information.component';
 import { CarInformationComponent } from './car-information/car-information.component';
 import { ScheduleComponent } from './schedule/schedule.component';
@@ -22,22 +22,28 @@ export class AppComponent {
     date:'',
     time:''
   };
+
   private reservationValidSource = new Subject<boolean>();
-  reservationValid$ = this.reservationValidSource.asObservable();
+  public reservationValid$ = this.reservationValidSource.asObservable();
   private customerInformationUpdateSource = new Subject<boolean>();
-  customerInformationUpdate$ = this.customerInformationUpdateSource.asObservable();
+  public customerInformationUpdate$ = this.customerInformationUpdateSource.asObservable();
   private vehicleInformationUpdateSource = new Subject<boolean>();
-  vehicleInformationUpdate$ = this.vehicleInformationUpdateSource.asObservable();
+  public vehicleInformationUpdate$ = this.vehicleInformationUpdateSource.asObservable();
   private scheduleInformationUpdateSource = new Subject<boolean>();
-  scheduleInformationUpdate$ = this.scheduleInformationUpdateSource.asObservable();
-  canSubmit = false;
-  reservations = new Array<Reservation>();
+  public scheduleInformationUpdate$ = this.scheduleInformationUpdateSource.asObservable();
+
+  public canSubmit = false;
+  public reservations = new Array<Reservation>();
+  private clearForms: EventEmitter<boolean> = new EventEmitter();
+  
   ngOnInit(): void {
     this.reservationValidSource.next(false);
     this.customerInformationUpdateSource.next(false);
     this.vehicleInformationUpdateSource.next(false);
     this.scheduleInformationUpdateSource.next(false);
+    this.clearForms.emit(false);
   }
+
   ngAfterViewInit(): void {
     combineLatest(
       this.customerInformationUpdate$,
@@ -47,17 +53,14 @@ export class AppComponent {
       filter(([customerInfoReady, vehicleInfoReady, scheduleInfoReady]) => !!customerInfoReady && !!vehicleInfoReady && !!scheduleInfoReady)
     )
     .subscribe(([customerInfoReady, vehicleInfoReady, scheduleInfoReady]) => {
-      console.log('customerInfoReady: ', customerInfoReady)
-      console.log('vehicleInfoReady: ', vehicleInfoReady)
-      console.log('scheduleInfoReady: ', scheduleInfoReady)
       if(customerInfoReady && vehicleInfoReady && scheduleInfoReady) {
         this.reservationValidSource.next(true);
       }
     });
+
     this.reservationValid$.subscribe(value => {
-      console.log("reservationValid value: ", value);
       this.canSubmit = value;
-    })
+    });
   }
   setDate(date) : void {
     this.scheduleInfo.date = date;
@@ -81,11 +84,11 @@ export class AppComponent {
       vehicle: this.vehicleInfo,
       date: new Date(this.scheduleInfo.date)
     });
-    console.log(this.reservations);
+    this.resetForms();
   }
 
   resetForms(): void {
-
+    this.clearForms.emit(true);
   }
 
 }

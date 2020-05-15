@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter, AfterViewInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, AfterViewInit, Input } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { Vehicle } from '../models/vehicle.model';
 
@@ -9,6 +9,7 @@ import { Vehicle } from '../models/vehicle.model';
 })
 export class CarInformationComponent implements OnInit, AfterViewInit {
   @Output() vehicleInfo = new EventEmitter<Vehicle>();
+  @Input() private clearForm: EventEmitter<boolean>;
   vehicleProfile = this.fb.group({
     year: new FormControl('', [
       Validators.required,
@@ -31,7 +32,13 @@ export class CarInformationComponent implements OnInit, AfterViewInit {
    }
 
   ngOnInit(): void {
-    console.log(this.vehicleProfile);
+    if (this.clearForm) {
+      this.clearForm.subscribe(value => {
+        if (value === true) {
+          this.resetVehicleInfo();
+        }
+      })
+    }
   }
   ngAfterViewInit(): void {
     this.vehicleProfile.valueChanges.subscribe(vehicleInfoChanges => {
@@ -49,6 +56,9 @@ export class CarInformationComponent implements OnInit, AfterViewInit {
         'color': this.vehicleProfile.controls.color.value,
       })
     }
+  }
+  resetVehicleInfo(): void {
+    this.vehicleProfile.reset();
   }
 
 }

@@ -1,4 +1,5 @@
-import { Component, OnInit, Output, EventEmitter, ViewChild, AfterViewInit, ElementRef } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { MatInput } from '@angular/material/input';
 // import { MatDatepickerModule, MatDatepicker } from '@angular/material/datepicker'
 
 @Component({
@@ -6,26 +7,34 @@ import { Component, OnInit, Output, EventEmitter, ViewChild, AfterViewInit, Elem
   templateUrl: './schedule.component.html',
   styleUrls: ['./schedule.component.scss']
 })
-export class ScheduleComponent implements OnInit, AfterViewInit {
+export class ScheduleComponent implements OnInit {
 
   @Output() selectedDate = new EventEmitter<string>();
+  @Input() private clearForm: EventEmitter<boolean>;
+  
+  date: Date;
 
   myFilter = (d: Date | null): boolean => {
-    const day = (d || new Date()).getDay();
+    const today = new Date();
+    const day = d;
     // Prevent Saturday and Sunday from being selected.
-    return day !== 0 && day !== 6;
+    return day > today;
+  }
+  constructor() { }
+  ngOnInit(): void {
+    if (this.clearForm) {
+      this.clearForm.subscribe(value => {
+        if (value === true) {
+          this.resetDate();
+        }
+      })
+    }
   }
   
-  constructor() { }
   selectDate(date) {
-    // console.log(event)
     this.selectedDate.emit(date)
   }
-  ngOnInit(): void {
+  resetDate(): void {
+    this.date = null;
   }
-  
-  ngAfterViewInit(): void {
-    
-  }
-
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { FormControl, FormBuilder, Validators } from '@angular/forms'
 import { Customer } from '../models/customer.model';
 
@@ -8,6 +8,7 @@ import { Customer } from '../models/customer.model';
   styleUrls: ['./customer-information.component.scss']
 })
 export class CustomerInformationComponent implements OnInit {
+  @Input() private clearForm: EventEmitter<boolean>;
   @Output() customerInfo = new EventEmitter<Customer>();
   customerProfile = this.fb.group({
     firstName: new FormControl('', [
@@ -49,6 +50,13 @@ export class CustomerInformationComponent implements OnInit {
 
   ngOnInit(): void {
     this.customerControlFields = Array.from(Object.keys(this.customerProfile.controls));
+    if (this.clearForm) {
+      this.clearForm.subscribe(value => {
+        if (value === true) {
+          this.resetCustomerInfo();
+        }
+      })
+    }
   }
   ngAfterViewInit(): void {
     this.customerProfile.valueChanges.subscribe(vehicleInfoChanges => {
@@ -66,6 +74,9 @@ export class CustomerInformationComponent implements OnInit {
         'email': this.customerProfile.controls.email.value,
       })
     }
+  }
+  resetCustomerInfo(): void {
+    this.customerProfile.reset();
   }
 
 }

@@ -7,11 +7,12 @@
 
 <div fxLayout="column">
   <div class="container" fxLayout="row" fxLayout.xs="column" fxLayout.sm="column" fxLayoutWrap fxLayoutGap="50px" fxLayoutAlign="space-evenly">
-    <app-customer-information fxFlex="20%" (customerInfo)="setCustomer($event)"></app-customer-information>
-    <app-car-information fxFlex="20%" (vehicleInfo)="setVehicle($event)"></app-car-information>
-    <app-schedule fxFlex="20%" (selectedDate)="setDate($event)"></app-schedule>
+    <app-customer-information fxFlex="20%" (customerInfo)="setCustomer($event)" [clearForm]="clearForms"></app-customer-information>
+    <app-car-information fxFlex="20%" (vehicleInfo)="setVehicle($event)" [clearForm]="clearForms"></app-car-information>
+    <app-schedule fxFlex="20%" (selectedDate)="setDate($event)" [clearForm]="clearForms"></app-schedule>
   </div>
   <span class="container" fxLayout="row" fxLayoutGap="50px" fxLayoutAlign="center">
+    <button mat-flat-button color="accent" (click)="resetForms()">Reset</button>
     <button mat-flat-button color="primary" disabled="{{!canSubmit}}" (click)="submitReservation()">Submit</button>
   </span>
 </div>
