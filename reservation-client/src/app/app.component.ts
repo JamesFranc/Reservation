@@ -22,7 +22,6 @@ export class AppComponent {
     date:'',
     time:''
   };
-  // reservationValid = false;
   private reservationValidSource = new Subject<boolean>();
   reservationValid$ = this.reservationValidSource.asObservable();
   private customerInformationUpdateSource = new Subject<boolean>();
@@ -45,8 +44,7 @@ export class AppComponent {
       this.vehicleInformationUpdate$,
       this.scheduleInformationUpdate$
     ).pipe(
-      // filter(([customerInfoReady, vehicleInfoReady, scheduleInfoReady]) => !!customerInfoReady && !!vehicleInfoReady && !!scheduleInfoReady)
-      tap(([customerInfoReady, vehicleInfoReady, scheduleInfoReady]) => {console.log('customerInfoReady: ', customerInfoReady)})
+      filter(([customerInfoReady, vehicleInfoReady, scheduleInfoReady]) => !!customerInfoReady && !!vehicleInfoReady && !!scheduleInfoReady)
     )
     .subscribe(([customerInfoReady, vehicleInfoReady, scheduleInfoReady]) => {
       console.log('customerInfoReady: ', customerInfoReady)
@@ -63,7 +61,7 @@ export class AppComponent {
   }
   setDate(date) : void {
     this.scheduleInfo.date = date;
-    this.customerInformationUpdateSource.next(true);
+    this.scheduleInformationUpdateSource.next(true);
   }
 
   setVehicle(vehicle: Vehicle) : void {
@@ -84,6 +82,10 @@ export class AppComponent {
       date: new Date(this.scheduleInfo.date)
     });
     console.log(this.reservations);
+  }
+
+  resetForms(): void {
+
   }
 
 }

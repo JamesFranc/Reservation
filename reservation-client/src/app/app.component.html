@@ -12,6 +12,6 @@
     <app-schedule fxFlex="20%" (selectedDate)="setDate($event)"></app-schedule>
   </div>
   <span class="container" fxLayout="row" fxLayoutGap="50px" fxLayoutAlign="center">
-    <button mat-flat-button color="primary" disabled="!canSubmit" (click)="submitReservation()">Submit</button>
+    <button mat-flat-button color="primary" disabled="{{!canSubmit}}" (click)="submitReservation()">Submit</button>
   </span>
 </div>
