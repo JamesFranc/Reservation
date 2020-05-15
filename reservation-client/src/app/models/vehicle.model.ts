@@ -4,4 +4,5 @@ export class Vehicle {
  model: string;
  color: string;
  license: string;
+ vin: string;
 }

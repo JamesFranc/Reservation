@@ -1,1 +1,34 @@
-<p>reservations works!</p>
+
+<div class="container" flexLayout="column" fxLayoutWrap fxLayoutGap="50px" fxLayoutAlign="space-evenly">
+    <mat-list *ngIf="scheduledReservations.length > 0" flexLayout="column">
+        <h2  flexLayout="row">Upcoming Reservations</h2>
+        <div class="header" flexLayout="row" fxLayoutGap="5px" fxLayoutAlign="space-evenly">
+            <div class="column" fxFlex="25%">
+                Customer name
+            </div>
+            <div class="column" fxFlex="25%">
+                Phone #
+            </div>
+            <div class="column" fxFlex="25%">
+                Vehicle Make & Model
+            </div>
+            <div class="column" fxFlex="25%">
+                License Plate
+            </div>
+        </div>
+        <mat-list-item *ngFor="let reservation of scheduledReservations"  flexLayout="row"> 
+            <div fxFlex="25%">
+                {{ reservation.customer.firstName + ' ' + reservation.customer.lastName }} 
+            </div>
+            <div fxFlex="25%">
+                {{ reservation.customer.phone }} 
+            </div>
+            <div fxFlex="25%">
+                {{ reservation.vehicle.make + ' ' + reservation.vehicle.model}} 
+            </div>
+            <div fxFlex="25%">
+                {{ reservation.vehicle.license }} 
+            </div>
+        </mat-list-item>
+    </mat-list>
+</div>

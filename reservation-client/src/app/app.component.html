@@ -16,3 +16,8 @@
     <button mat-flat-button color="primary" disabled="{{!canSubmit}}" (click)="submitReservation()">Submit</button>
   </span>
 </div>
+<div fxLayout="column">
+  <div class="container" fxLayoutWrap fxLayoutGap="100px" fxLayoutAlign="space-evenly">
+    <app-reservations [scheduled]="reservations$"></app-reservations>
+  </div>
+</div>

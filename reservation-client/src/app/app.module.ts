@@ -13,6 +13,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatListModule } from '@angular/material/list';
 
 import { AppComponent } from './app.component';
 import { CustomerInformationComponent } from './customer-information/customer-information.component';
@@ -48,7 +49,8 @@ import { ReservationsComponent } from './reservations/reservations.component';
     MatDatepickerModule,
     MatNativeDateModule,
     MatDividerModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

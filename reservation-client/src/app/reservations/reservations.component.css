@@ -1,0 +1,17 @@
+.container {
+  width: 100%;
+}
+mat-list {
+  margin-top: 75px;
+  width: 50%;
+}
+h2 {
+  text-align: center;
+}
+.header {
+  text-align: center;
+}
+mat-list-item div {
+  margin: 0px;
+  text-align: center;
+}

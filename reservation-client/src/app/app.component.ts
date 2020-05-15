@@ -33,13 +33,17 @@ export class AppComponent {
   public vehicleInformationUpdate$ = this.vehicleInformationUpdateSource.asObservable();
   private scheduleInformationUpdateSource = new Subject<boolean>();
   public scheduleInformationUpdate$ = this.scheduleInformationUpdateSource.asObservable();
+  private reservationsSource = new Subject<Reservation[]>();
+  public reservations$ = this.reservationsSource.asObservable();
 
   public canSubmit = false;
   public reservations = new Array<Reservation>();
+
   public clearForms: EventEmitter<boolean> = new EventEmitter();
 
   
   ngOnInit(): void {
+    this.reservationsSource.next(this.reservations);
     this.resetForms();
   }
 
@@ -83,6 +87,7 @@ export class AppComponent {
       vehicle: this.vehicleInfo,
       date: new Date(this.scheduleInfo.date)
     });
+    this.reservationsSource.next(this.reservations);
     this.snackBar.open('Made a reservation for '+this.customerInfo.firstName+' '+this.customerInfo.lastName+'.', 'x', {duration: 5*1000});
     this.resetForms();
   }

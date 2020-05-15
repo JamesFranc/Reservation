@@ -33,6 +33,10 @@ export class CarInformationComponent implements OnInit, AfterViewInit {
       Validators.required,
       Validators.minLength(this.minLength)
     ]),
+    vin: new FormControl('', [
+      Validators.required,
+      Validators.minLength(this.minLength)
+    ]),
   });
   constructor(private fb: FormBuilder) {
    }
@@ -60,6 +64,8 @@ export class CarInformationComponent implements OnInit, AfterViewInit {
         'make': this.vehicleProfile.controls.make.value,
         'model': this.vehicleProfile.controls.model.value,
         'color': this.vehicleProfile.controls.color.value,
+        'license': this.vehicleProfile.controls.license.value,
+        'vin': this.vehicleProfile.controls.vin.value
       })
     }
   }

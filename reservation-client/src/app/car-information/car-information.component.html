@@ -63,6 +63,18 @@
                     </span>
                 </mat-error>
             </mat-form-field>
+            <mat-form-field>
+                <mat-label>VIN:</mat-label>
+                <input matInput type="string" formControlName="vin">
+                <mat-error *ngIf="vehicleFormControl.vin.invalid && (vehicleFormControl.vin.dirty || vehicleFormControl.vin.touched)" class="alert alert-danger">
+                    <span *ngIf="vehicleFormControl.vin.errors.required">
+                        VIN is required.
+                    </span>
+                    <span *ngIf="vehicleFormControl.vin.errors.minlength">
+                        VIN must be at least {{ minLength }} characters long.
+                    </span>
+                </mat-error>
+            </mat-form-field>
         </form>
     </mat-card-content>
 </mat-card>

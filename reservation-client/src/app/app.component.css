@@ -20,3 +20,6 @@ button {
   position: relative;
   top: 40px;
 }
+app-reservations {
+  width: 100%;
+}
